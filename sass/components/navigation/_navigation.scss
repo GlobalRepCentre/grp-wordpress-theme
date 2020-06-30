@@ -67,6 +67,24 @@
     &:last-child {
       margin-left: auto;
     }
+
+    &.menu-item-has-children {
+      > a {
+        padding: 1rem 1.5rem 1rem 1rem;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          border-top: 0.3rem solid $white;
+          border-right: 0.3rem solid transparent;
+          border-bottom: 0.3rem solid transparent;
+          border-left: 0.3rem solid transparent;
+          margin-left: 0.5rem;
+        }
+      }
+    }
 	}
 
 	a {
