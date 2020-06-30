@@ -1,0 +1,31 @@
+// Sizes
+@mixin md {
+  @media (min-width: $md) {
+    @content;
+  }
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Column width with margin
+@mixin column-width($numberColumns: 3) {
+	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+}
+
+@mixin content-width {
+  margin: 0 auto;
+  max-width: $content-width;
+  width: 100%;
+}
+
+@mixin primary-button {
+  border-radius: 5px;
+  background-color: $white;
+  color: $primary;
+  padding: 0.5rem 0.75rem;
+}
