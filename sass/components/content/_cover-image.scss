@@ -1,5 +1,11 @@
-header.cover-image {
-  background-image: url('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
-  background-size: cover;
-  height: 75vh;
+header#cover-photo {
+  position: relative;
+  figure {
+  }
+  .card {
+    
+  }
+  img {
+    width: 100%;
+  }
 }

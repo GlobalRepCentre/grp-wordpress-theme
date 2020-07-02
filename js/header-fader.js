@@ -5,6 +5,7 @@
  * start with a transparent header
  */
 
+let intersectorSpan = document.getElementById('intersector');
 let siteHeader = document.getElementById('masthead');
 
 // Check for Intersection Observer support
@@ -20,17 +21,17 @@ else {
     let options = {
       root: null, // setting null uses the viewport
       rootMargin: '0px', // grow/shrink each side of root element bounding box before computing intersections
-      threshold: 0.65 // when half of the target element is visible
+      threshold: 1.0 // when 100% of the target is visible within the root element
     }
   
     observer = new IntersectionObserver(handleIntersect, options);
-    observer.observe(siteHeader);
+    observer.observe(intersectorSpan);
   }
 
   function handleIntersect(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (entry.intersectionRatio <= 0.65) {
+        if (entry.intersectionRatio < 1.0) {
           console.log('we have scrolled down past threshold');
           siteHeader.classList.add('active');
         }
@@ -41,7 +42,7 @@ else {
           }
         }
       }
-      else if (entry.intersectionRatio <= 0.65) {
+      else if (entry.intersectionRatio < 1.0) {
         siteHeader.classList.add('active');
       }
     });

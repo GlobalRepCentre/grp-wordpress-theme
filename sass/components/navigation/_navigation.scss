@@ -1,11 +1,15 @@
-.main-navigation {
-	display: block;
-  width: 100%;
-  background-color: $primary;
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
+  background-color: $primary;
   height: $nav-height;
+  z-index: 2;
+}
+
+.main-navigation {
+	display: block;
 
 	ul {
 		display: none;
@@ -16,12 +20,12 @@
     @include content-width;
 
 		ul {
-			box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
 			float: left;
 			position: absolute;
 			top: 100%;
 			left: -999em;
-			z-index: 99999;
+      z-index: 99999;
+      background: $primary;
 
 			ul {
 				left: -999em;
@@ -48,7 +52,7 @@
 
 			a:hover,
 			a.focus {
-			}
+      }
 		}
 
 		li:hover > ul,
@@ -146,22 +150,27 @@
 }
 
 // Fading Header
+#intersector {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1px;
+  width: 1px;
+  opacity: 0;
+  visibility: hidden;
+}
 
 .home .site-header {
-  .main-navigation {
-    background: none;
-    transition: background 0.3s ease-in-out;
-  }
+  background: none;
+  transition: background 0.3s ease-in-out;
   &.active {
-    .main-navigation {
-      background: $primary;
-    }
+    background: $primary;
   }
 }
 
 // WordPress Admin Bar
 .logged-in {
-  .main-navigation {
+  .site-header {
     top: 32px;
   }
 }
