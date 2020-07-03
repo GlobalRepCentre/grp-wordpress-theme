@@ -1,0 +1,22 @@
+.site-footer {
+  background-color: $primary;
+  color: $lightgrey;
+  padding: 1rem 0;
+  .site-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    @include content-width;
+    div {
+      display: flex;
+      align-items: center;
+      span {
+        margin-right: 1rem;
+        a {
+          color: $lightgrey;
+        }
+      }
+    }
+  }
+}
