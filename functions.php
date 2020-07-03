@@ -84,7 +84,11 @@ if ( ! function_exists( 'global_reporting_program_setup' ) ) :
 		);
 
 		// Add theme support for selective refresh for widgets.
-		add_theme_support( 'customize-selective-refresh-widgets' );
+    add_theme_support( 'customize-selective-refresh-widgets' );
+    
+    // Add theme support to change the Gutenberg editor's styles
+    add_theme_support('editor-styles');
+    add_editor_style( 'css/editor.css' );
 
 		/**
 		 * Add support for core custom logo.
@@ -153,7 +157,7 @@ function global_reporting_program_scripts() {
 		wp_enqueue_script( 'comment-reply' );
   }
   
-  if ( is_home() ) {
+  if ( is_front_page() ) {
     wp_enqueue_script( 'global-reporting-program-header-fader', get_template_directory_uri() . '/js/header-fader.js', array(), _S_VERSION, true );
   }
 }
