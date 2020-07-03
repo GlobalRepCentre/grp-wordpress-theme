@@ -1,11 +1,50 @@
-header#cover-photo {
+header#cover-image {
   position: relative;
-  figure {
-  }
-  .card {
-    
-  }
-  img {
+   &::after {
+    top: 0;
+    left: 0;
+    display: block;
+    content: '';
+    position: absolute;
     width: 100%;
+    height: 208px;
+    box-shadow: inset 0px 104px 78px -78px $primary;
+  }
+  .img-wrapper {
+    position: relative;
+    overflow: hidden;
+    // for the bottom pseudo element
+    img {
+      width: 100%;
+      display: block;
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 110%;
+      position: absolute;
+      height: 100px;
+      left: -5%;
+      bottom: -50px;
+      background: $lightgrey;
+      transform: rotate(-2.5deg);
+    }
+  }
+  .lead {
+    display: flex;
+    @include content-width;
+    z-index: 2;
+    position: relative;
+    .headline {
+      @include card;
+      margin-top: -10rem;
+      font-size: 1.2rem;
+      h1 {
+        margin-bottom: 0;
+      }
+    }
+    .caption {
+      margin: -2rem 0 0 1.5rem;
+    }
   }
 }
