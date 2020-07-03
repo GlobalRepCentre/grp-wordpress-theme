@@ -22,9 +22,11 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'global-reporting-program' ); ?></a>
+  <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'global-reporting-program' ); ?></a>
+  
+  <span id="intersector" aria-hidden="true"></span>
 
-	<header id="masthead" class="site-header cover-image">
+	<header id="masthead" class="site-header">
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'global-reporting-program' ); ?></button>
 			<?php
@@ -36,4 +38,4 @@
 			);
 			?>
     </nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
+  </header><!-- #masthead -->
