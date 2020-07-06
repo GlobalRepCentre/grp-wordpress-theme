@@ -2,11 +2,6 @@
 	display: block;
 }
 
-.post,
-.page {
-	margin: 0 0 1.5em;
-}
-
 .updated:not(.published) {
 	display: none;
 }
@@ -20,4 +15,8 @@
 .page-links {
 	clear: both;
   margin: 0 0 1.5em;
+}
+
+.entry-content {
+  @include content-width;
 }

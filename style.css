@@ -41,8 +41,6 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	- Media
 	- Captions
 	- Galleries
-# plugins
-	- Jetpack infinite scroll
 # Utilities
 	- Accessibility
 	- Alignments
@@ -387,7 +385,7 @@ input,
 select,
 optgroup,
 textarea {
-	color: #404040;
+	color: #111111;
 	font-family: "Gothic A1", sans-serif;
 	font-size: 1rem;
 	font-weight: 500;
@@ -428,22 +426,6 @@ address {
 	margin: 0 0 1.5em;
 }
 
-abbr,
-acronym {
-	border-bottom: 1px dotted #666;
-	cursor: help;
-}
-
-mark,
-ins {
-	background: #fff9c0;
-	text-decoration: none;
-}
-
-big {
-	font-size: 125%;
-}
-
 /* Elements
 --------------------------------------------- */
 body {
@@ -451,7 +433,7 @@ body {
 }
 
 hr {
-	background-color: #ccc;
+	background-color: #F6F6F6;
 	border: 0;
 	height: 1px;
 	margin-bottom: 1.5em;
@@ -519,15 +501,15 @@ table {
 /* Links
 --------------------------------------------- */
 a {
-	color: #4169e1;
+	color: #111111;
 }
 
 a:visited {
-	color: #800080;
+	color: #848484;
 }
 
 a:hover, a:focus, a:active {
-	color: #191970;
+	color: #2A263D;
 }
 
 a:focus {
@@ -545,9 +527,8 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
+	border-color: none;
 	border-radius: 3px;
-	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
 	padding: 0.6em 1em 0.4em;
@@ -557,7 +538,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
+	border-color: #2A263D;
 }
 
 button:active, button:focus,
@@ -567,7 +548,7 @@ input[type="reset"]:active,
 input[type="reset"]:focus,
 input[type="submit"]:active,
 input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
+	border-color: #2A263D;
 }
 
 .button {
@@ -596,8 +577,6 @@ input[type="datetime"],
 input[type="datetime-local"],
 input[type="color"],
 textarea {
-	color: #666;
-	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 3px;
 }
@@ -618,11 +597,7 @@ input[type="datetime"]:focus,
 input[type="datetime-local"]:focus,
 input[type="color"]:focus,
 textarea:focus {
-	color: #111;
-}
-
-select {
-	border: 1px solid #ccc;
+	color: #111111;
 }
 
 textarea {
@@ -658,34 +633,36 @@ textarea {
 	align-items: center;
 }
 
-.feature-block-icons > .wp-block-column .wp-block-columns .wp-block-column + .wp-block-column .circle {
-	display: block;
+.feature-block-icons > .wp-block-column .wp-block-columns .wp-block-column + .wp-block-column .fad {
+	color: #ffffff;
+	border-radius: 50%;
+	font-size: 2rem;
 	height: 4rem;
 	width: 4rem;
-	border-radius: 50%;
+	line-height: 4rem;
 }
 
-.home .entry-content .feature-block-icons:nth-of-type(1) > .wp-block-column:nth-of-type(1) span {
+.home .entry-content .feature-block-icons:nth-of-type(1) > .wp-block-column:nth-of-type(1) .fad {
 	background-color: #A4243B;
 }
 
-.home .entry-content .feature-block-icons:nth-of-type(1) > .wp-block-column:nth-of-type(2) span {
+.home .entry-content .feature-block-icons:nth-of-type(1) > .wp-block-column:nth-of-type(2) .fad {
 	background-color: #FC9D66;
 }
 
-.home .entry-content .feature-block-icons:nth-of-type(2) > .wp-block-column:nth-of-type(1) span {
+.home .entry-content .feature-block-icons:nth-of-type(2) > .wp-block-column:nth-of-type(1) .fad {
 	background-color: #D8973C;
 }
 
-.home .entry-content .feature-block-icons:nth-of-type(2) > .wp-block-column:nth-of-type(2) span {
+.home .entry-content .feature-block-icons:nth-of-type(2) > .wp-block-column:nth-of-type(2) .fad {
 	background-color: #2A263D;
 }
 
-.home .entry-content .feature-block-icons:nth-of-type(3) > .wp-block-column:nth-of-type(1) span {
+.home .entry-content .feature-block-icons:nth-of-type(3) > .wp-block-column:nth-of-type(1) .fad {
 	background-color: #486F7E;
 }
 
-.home .entry-content .feature-block-icons:nth-of-type(3) > .wp-block-column:nth-of-type(2) span {
+.home .entry-content .feature-block-icons:nth-of-type(3) > .wp-block-column:nth-of-type(2) .fad {
 	background-color: #3B97C1;
 }
 
@@ -726,6 +703,8 @@ textarea {
 	left: -999em;
 	z-index: 99999;
 	background: #2A263D;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
 }
 
 .main-navigation ul ul ul {
@@ -872,6 +851,7 @@ textarea {
 	background-color: #2A263D;
 	color: #F6F6F6;
 	padding: 1rem 0;
+	margin-top: 3rem;
 }
 
 .site-footer .site-info {
@@ -987,16 +967,6 @@ header#cover-image .lead .caption {
 	width: 100%;
 }
 
-/* Comments
---------------------------------------------- */
-.comment-content a {
-	word-wrap: break-word;
-}
-
-.bypostauthor {
-	display: block;
-}
-
 /* Widgets
 --------------------------------------------- */
 .widget {
@@ -1094,19 +1064,6 @@ header#cover-image .lead .caption {
 	display: block;
 }
 
-/* Jetpack infinite scroll
---------------------------------------------- */
-/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
-.infinite-scroll .posts-navigation,
-.infinite-scroll.neverending .site-footer {
-	display: none;
-}
-
-/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
-.infinity-end.neverending .site-footer {
-	display: block;
-}
-
 /*--------------------------------------------------------------
 # Utilities
 --------------------------------------------------------------*/
@@ -1127,12 +1084,12 @@ header#cover-image .lead .caption {
 }
 
 .screen-reader-text:focus {
-	background-color: #f1f1f1;
+	background-color: #F6F6F6;
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
 	clip: auto !important;
 	clip-path: none;
-	color: #21759b;
+	color: #111111;
 	display: block;
 	font-size: 0.875rem;
 	font-weight: 700;

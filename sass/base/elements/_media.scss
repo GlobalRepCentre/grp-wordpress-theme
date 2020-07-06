@@ -11,5 +11,15 @@ img {
 }
 
 figure {
-	margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+  margin: 0;
+}
+
+.caption, figcaption {
+  font-size: 0.8rem;
+  color: $grey;
+  img {
+    display: block;
+    margin-top: 0.5rem;
+    max-width: 130px;
+  }
 }
