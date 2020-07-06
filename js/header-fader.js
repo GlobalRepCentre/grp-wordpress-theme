@@ -31,18 +31,11 @@ else {
   function handleIntersect(entries) {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        if (entry.intersectionRatio < 1.0) {
-          console.log('we have scrolled down past threshold');
-          siteHeader.classList.add('active');
-        }
-        else {
-          console.log('we have scrolled up past threshold');
-          if (siteHeader.classList.contains('active')) {
-            siteHeader.classList.remove('active');
-          }
+        if (siteHeader.classList.contains('active')) {
+          siteHeader.classList.remove('active');
         }
       }
-      else if (entry.intersectionRatio < 1.0) {
+      else {
         siteHeader.classList.add('active');
       }
     });
