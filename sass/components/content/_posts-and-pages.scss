@@ -20,3 +20,13 @@
 .entry-content {
   @include content-width;
 }
+
+.site-main {
+  margin-top: $nav-height;
+}
+
+body.home {
+  .site-main {
+    margin-top: 0;
+  }
+}

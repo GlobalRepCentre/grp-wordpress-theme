@@ -1,0 +1,57 @@
+// The program features/icon split boxes
+.feature-block-icons {
+  > .wp-block-column {
+    @include card;
+    padding: 0.25rem 1.25rem;
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin: 0 0 0.5rem 0;
+      font-size: 0.8rem;
+    }
+    .wp-block-columns {
+      margin-bottom: 0;
+      .wp-block-column + .wp-block-column {
+        display: flex;
+        align-items: center;
+        .fad {
+          color: $white;
+          border-radius: 50%;
+          font-size: 2rem;
+          height: 4rem;
+          width: 4rem;
+          line-height: 4rem;
+        }
+      }
+    }
+  }
+}
+
+.home .entry-content .feature-block-icons {
+  // First row
+  &:nth-of-type(1) { 
+    > .wp-block-column:nth-of-type(1) .fad {
+      background-color: $accent1;
+    }
+    > .wp-block-column:nth-of-type(2) .fad {
+      background-color: $accent2;
+    }
+  }
+  &:nth-of-type(2) { 
+    > .wp-block-column:nth-of-type(1) .fad {
+      background-color: $accent3;
+    }
+    > .wp-block-column:nth-of-type(2) .fad {
+      background-color: $accent4;
+    }
+  }
+  &:nth-of-type(3) { 
+    > .wp-block-column:nth-of-type(1) .fad {
+      background-color: $accent5;
+    }
+    > .wp-block-column:nth-of-type(2) .fad {
+      background-color: $accent6;
+    }
+  }
+}

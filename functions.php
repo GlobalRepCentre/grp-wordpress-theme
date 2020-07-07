@@ -108,6 +108,46 @@ function global_reporting_program_content_width() {
 }
 add_action( 'after_setup_theme', 'global_reporting_program_content_width', 0 );
 
+
+// Setup custom post types for the Syllabus and Ethics Handbook
+function grp_custom_posts_init() {
+
+  $labels = array(
+    'name'                  => _x( 'Syllabus Sections', 'Post type general name', 'syllabus' ),
+    'singular_name'         => _x( 'Syllabus Section', 'Post type singular name', 'syllabus' ),
+    'menu_name'             => _x( 'Syllabus', 'Admin Menu text', 'syllabus' ),
+    'name_admin_bar'        => _x( 'Syllabus Section', 'Add New on Toolbar', 'syllabus' ),
+    'add_new'               => __( 'Add New', 'syllabus' ),
+    'add_new_item'          => __( 'Add new section', 'syllabus' ),
+    'new_item'              => __( 'New section', 'syllabus' ),
+    'edit_item'             => __( 'Edit section', 'syllabus' ),
+    'view_item'             => __( 'View section', 'syllabus' ),
+    'all_items'             => __( 'Sections', 'syllabus' ),
+  );
+  $args = array(
+    'labels'             => $labels,
+    'description'        => 'Syllabus custom post type',
+    'menu_icon'          => 'dashicons-text-page',
+    'public'             => false,
+    'show_ui'            => true,
+    'show_in_menu'       => true,
+    'query_var'          => false,
+    'rewrite'            => false,
+    'has_archive'        => false,
+    'hierarchical'       => false,
+    'menu_position'      => 20,
+    'supports'           => array( 'title', 'editor' ),
+    'show_in_rest'       => true
+  );
+  register_post_type( 'syllabus', $args );
+}
+
+add_action( 'init', 'grp_custom_posts_init' );
+
+
+
+
+
 /**
  * Enqueue scripts and styles.
  */

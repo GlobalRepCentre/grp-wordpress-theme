@@ -1,0 +1,52 @@
+article.document {
+  @include content-width;
+  @include content-padding;
+  display: flex;
+  .header-nav {
+    flex-basis: 30%;
+    text-align: right;
+    header {
+      @include card;
+      h1 {
+        margin: 0;
+      }
+      p {
+        margin: 0;
+        font-size: 1.1rem;
+      }
+    }
+    nav {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      ul {
+        list-style-type: none;
+      }
+      li a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 0.35rem 1rem;
+      }
+    }
+  }
+  .entry-content {
+    flex-basis: 70%;
+    margin-left: 2rem;
+    section {
+      margin-bottom: 2rem;
+      h2 {
+        margin: 1rem 1.5rem 0.25rem;
+      }
+      div {
+        @include card;
+        padding: 1.5rem;
+        p:first-of-type {
+          margin-top: 0;
+        }
+        p:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
