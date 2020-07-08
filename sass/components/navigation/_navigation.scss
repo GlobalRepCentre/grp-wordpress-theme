@@ -28,6 +28,8 @@
       background: $primary;
       border-bottom-left-radius: 5px;
       border-bottom-right-radius: 5px;
+      flex-direction: column;
+      align-items: flex-start;
 
 			ul {
 				left: -999em;
@@ -35,6 +37,8 @@
 			}
 
 			li {
+
+        width: 100%;
 
 				&:hover > ul,
 				&.focus > ul {
@@ -44,11 +48,7 @@
 
 			}
 
-			a {
-        width: 200px;
-			}
-
-			:hover > a,
+      :hover > a,
 			.focus > a {
 			}
 

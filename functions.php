@@ -139,14 +139,41 @@ function grp_custom_posts_init() {
     'supports'           => array( 'title', 'editor' ),
     'show_in_rest'       => true
   );
+
+  $handbookLabels = array(
+    'name'                  => _x( 'Ethics Handbook Sections', 'Post type general name', 'ethics-handbook' ),
+    'singular_name'         => _x( 'Handbook Section', 'Post type singular name', 'ethics-handbook' ),
+    'menu_name'             => _x( 'Ethics Handbook', 'Admin Menu text', 'ethics-handbook' ),
+    'name_admin_bar'        => _x( 'Handbook Section', 'Add New on Toolbar', 'ethics-handbook' ),
+    'add_new'               => __( 'Add New', 'ethics-handbook' ),
+    'add_new_item'          => __( 'Add new section', 'ethics-handbook' ),
+    'new_item'              => __( 'New section', 'ethics-handbook' ),
+    'edit_item'             => __( 'Edit section', 'ethics-handbook' ),
+    'view_item'             => __( 'View section', 'ethics-handbook' ),
+    'all_items'             => __( 'Handbook sections', 'ethics-handbook' ),
+  );
+  $handbookArgs = array(
+    'labels'             => $handbookLabels,
+    'description'        => 'Ethics Handbook custom post type',
+    'menu_icon'          => 'dashicons-book',
+    'public'             => false,
+    'show_ui'            => true,
+    'show_in_menu'       => true,
+    'query_var'          => false,
+    'rewrite'            => false,
+    'has_archive'        => false,
+    'hierarchical'       => false,
+    'menu_position'      => 20,
+    'supports'           => array( 'title', 'editor' ),
+    'show_in_rest'       => true
+  );
+
   register_post_type( 'syllabus', $args );
+  register_post_type( 'ethics-handbook', $handbookArgs );
+
 }
 
 add_action( 'init', 'grp_custom_posts_init' );
-
-
-
-
 
 /**
  * Enqueue scripts and styles.
@@ -160,6 +187,10 @@ function global_reporting_program_scripts() {
   if ( is_front_page() ) {
     wp_enqueue_script( 'global-reporting-program-header-fader', get_template_directory_uri() . '/js/header-fader.js', array(), _S_VERSION, true );
     wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/8a020944ca.js', array(), _S_VERSION, false );
+  }
+
+  if ( is_page_template('page-document.php') ) {
+    wp_enqueue_script( 'global-reporting-program-document-scroll', get_template_directory_uri() . '/js/document-scroll.js', array('jquery'), _S_VERSION, true );
   }
 }
 add_action( 'wp_enqueue_scripts', 'global_reporting_program_scripts' );
