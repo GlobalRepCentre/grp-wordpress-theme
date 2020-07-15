@@ -1,0 +1,84 @@
+.project {
+  font-size: 0.9rem;
+  .img-wrapper {
+    img {
+      display: block;
+    }
+  }
+  .overview {
+    @include card;
+    h2 {
+      margin: 0.5rem 0;
+    }
+    .logo {
+      max-width: 190px;
+      display: block;
+      margin: 0.25rem 0 1rem;
+    }
+    p {
+      margin: 1rem 0;
+    }
+  }
+  .location-awards {
+    font-size: 0.8rem;
+    span.list-label {
+      text-transform: uppercase;
+      display: block;
+      font-weight: 800;
+    }
+    span.country {
+      + span {
+        &::before {
+          content: ', ';
+        }
+      }      
+    }
+    ol {
+      padding-left: 0.5rem;
+    }
+  }
+  &.featured {
+    header#cover-project {
+      position: relative;
+      .caption {
+        position: absolute;
+        bottom: 0.5rem;
+        right: 1rem;
+        // account for overflowing .overview box
+        margin-left: calc(60% + 2rem);
+        color: $white;
+        text-align: right;
+      }
+    }
+    .info-box {
+      @include content-width;
+      display: flex;
+      .overview {
+        display: flex;
+        flex-basis: 60%;
+        margin-top: -5rem;
+        margin-left: 1rem;
+        position: relative;
+        div {
+          flex: 1;
+        }
+        div:first-child {
+          flex: 0 1 auto;
+          margin-right: 2rem;
+        }
+      }
+      .location-awards {
+        display: flex;
+        flex-basis: 40%;
+        padding: 1rem 0 0 2rem;
+        div {
+          flex: 1;
+          padding-right: 1rem;
+        }
+      }
+    }
+    &::after {
+      @include cover-shadow;
+    }
+  }
+}

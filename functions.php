@@ -135,7 +135,7 @@ function grp_custom_posts_init() {
     'rewrite'            => false,
     'has_archive'        => false,
     'hierarchical'       => false,
-    'menu_position'      => 20,
+    'menu_position'      => 5,
     'supports'           => array( 'title', 'editor' ),
     'show_in_rest'       => true
   );
@@ -163,7 +163,7 @@ function grp_custom_posts_init() {
     'rewrite'            => false,
     'has_archive'        => false,
     'hierarchical'       => false,
-    'menu_position'      => 20,
+    'menu_position'      => 5,
     'supports'           => array( 'title', 'editor' ),
     'show_in_rest'       => true
   );
@@ -175,6 +175,36 @@ function grp_custom_posts_init() {
 
 add_action( 'init', 'grp_custom_posts_init' );
 
+// Change admin menu posts to Projects
+function change_posts_to_projects() {
+  $get_post_type = get_post_type_object('post');
+  $labels = $get_post_type->labels;
+  $labels->name = 'Projects';
+  $labels->singular_name = 'Projects';
+  $labels->add_new = 'Add project';
+  $labels->add_new_item = 'Add project';
+  $labels->edit_item = 'Edit project';
+  $labels->new_item = 'Project';
+  $labels->view_item = 'View project';
+  $labels->search_items = 'Search projects';
+  $labels->not_found = 'No projects found';
+  $labels->not_found_in_trash = 'No projects found in Trash';
+  $labels->all_items = 'All projects';
+  $labels->menu_name = 'Projects';
+  $labels->name_admin_bar = 'Projects';
+}
+
+add_action( 'init', 'change_posts_to_projects' );
+
+// Add custom body class for pages with a fading header
+function fading_header( $classes ) {
+  if ( is_front_page() || ( is_page( 'projects' )) ) {
+    $classes[] = 'fade-header';
+  }
+  return $classes;
+}
+add_filter( 'body_class', 'fading_header' );
+
 /**
  * Enqueue scripts and styles.
  */
@@ -184,8 +214,11 @@ function global_reporting_program_scripts() {
 
 	wp_enqueue_script( 'global-reporting-program-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-  if ( is_front_page() ) {
+  if ( is_front_page() || is_page('projects') ) {
     wp_enqueue_script( 'global-reporting-program-header-fader', get_template_directory_uri() . '/js/header-fader.js', array(), _S_VERSION, true );
+  }
+
+  if ( is_front_page() ) {
     wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/8a020944ca.js', array(), _S_VERSION, false );
   }
 

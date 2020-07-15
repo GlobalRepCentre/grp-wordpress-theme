@@ -21,4 +21,8 @@ input[type="submit"] {
 
 .button {
   @include primary-button;
+  &.filled {
+    background-color: $primary;
+    color: $white;
+  }
 }

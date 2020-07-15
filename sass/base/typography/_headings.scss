@@ -8,6 +8,12 @@ h6 {
 	clear: both;
 }
 
-h2 {
+header.entry-header.page {
+  h1 {
+    @include content-width;
+  }
+}
+
+h2.section {
   margin-top: 3rem;
 }
