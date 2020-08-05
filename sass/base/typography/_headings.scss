@@ -9,6 +9,7 @@ h6 {
 }
 
 header.entry-header.page {
+  @include card;
   h1 {
     @include content-width;
   }
@@ -16,4 +17,16 @@ header.entry-header.page {
 
 h2.section {
   margin-top: 3rem;
+}
+
+h2.underline {
+  margin-top: 2rem;
+  &::after {
+    content: '';
+    display: block;
+    margin-top: 0.5rem;
+    background: lighten($grey, 25%);
+    height: 1px;
+    width: 33%;
+  }
 }

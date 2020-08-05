@@ -17,9 +17,14 @@ figure {
 .caption, figcaption {
   font-size: 0.8rem;
   color: $grey;
+  line-height: 1.7;
   img {
     display: block;
     margin-top: 0.5rem;
     max-width: 130px;
   }
+}
+
+.people-page img {
+  border-radius: 3px;
 }

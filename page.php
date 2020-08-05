@@ -25,6 +25,10 @@ get_header();
 
         get_template_part( 'template-parts/content', 'page-projects' );   
 
+      elseif ( is_page('fellows') || is_page('faculty-staff-and-board') ) :
+
+        get_template_part( 'template-parts/content', 'page-people' );       
+        
       else :
 
         get_template_part( 'template-parts/content', 'page' );
