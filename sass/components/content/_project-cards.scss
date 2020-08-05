@@ -11,7 +11,7 @@
       margin: 0.5rem 0;
     }
     .logo {
-      max-width: 190px;
+      max-width: 170px;
       display: block;
       margin: 0.25rem 0 1rem;
     }
@@ -23,21 +23,20 @@
     font-size: 0.8rem;
     span.list-label {
       text-transform: uppercase;
-      display: block;
+      display: inline-block;
+      margin-right: 0.25rem;
       font-weight: 800;
     }
-    span.country {
-      + span {
+    span.list-item {
+      + span.list-item {
         &::before {
           content: ', ';
         }
       }      
     }
-    ol {
-      padding-left: 0.5rem;
-    }
   }
   &.featured {
+    margin-bottom: 2rem;
     header#cover-project {
       position: relative;
       .caption {
@@ -79,6 +78,44 @@
     }
     &::after {
       @include cover-shadow;
+    }
+  }
+  &.regular {
+    margin: 2rem 0;
+    display: flex;
+    .entry-header {
+      width: 50%;
+      img {
+        border-radius: 3px;
+      }
+    }
+    .info-box {
+      max-width: $sm;
+      margin-top: 2rem;
+      .overview {
+        padding: 1rem 1.25rem;
+        .button {
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+    .location-awards {
+      padding: 0.75rem 1.5rem 0;
+      .list-label {
+        padding-top: 0.5rem;
+      }
+    }
+    &:nth-child(even) {
+      .entry-header {
+        order: 2;
+        .caption {
+          text-align: right;
+        }
+      }
+      .info-box {
+        order: 1;
+        margin-left: auto;
+      }
     }
   }
 }

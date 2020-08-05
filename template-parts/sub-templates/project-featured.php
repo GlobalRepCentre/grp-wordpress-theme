@@ -41,14 +41,14 @@ $url = get_field('project_link');
       <div>
         <?php if ( have_rows('reported_in') ) : ?>
           <span class="list-label">Reported in</span>
-          <?php while( have_rows('reported_in') ) : the_row(); ?><span class="country"><?php the_sub_field('country'); ?></span><?php endwhile;
+          <?php while( have_rows('reported_in') ) : the_row(); ?><span class="list-item"><?php the_sub_field('country'); ?></span><?php endwhile;
         endif; ?>
       </div>
       <div>
         <?php if ( have_rows('awards') ) : ?>
           <span class="list-label">Awards</span>
-          <ol><?php while( have_rows('awards') ) : the_row(); ?><li><?php the_sub_field('award'); ?></li><?php endwhile;
-        endif; ?></ol>
+          <?php while( have_rows('awards') ) : the_row(); ?><span class="list-item"><?php the_sub_field('award'); ?></span><?php endwhile;
+        endif; ?>
       </div>
     </div>
   </section>
