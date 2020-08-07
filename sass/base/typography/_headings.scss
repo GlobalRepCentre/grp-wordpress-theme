@@ -10,8 +10,17 @@ h6 {
 
 header.entry-header.page {
   @include card;
-  h1 {
+  .container {
+    display: flex;
+    align-items: center;
     @include content-width;
+    h1 {
+      margin: 0 2rem 0 0;
+    }
+    p {
+      font-size: 0.8rem;
+      margin: 0;
+    }
   }
 }
 

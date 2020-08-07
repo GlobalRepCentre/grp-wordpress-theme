@@ -27,7 +27,11 @@ get_header();
 
       elseif ( is_page('fellows') || is_page('faculty-staff-and-board') ) :
 
-        get_template_part( 'template-parts/content', 'page-people' );       
+        get_template_part( 'template-parts/content', 'page-people' );
+      
+      elseif ( is_page('about') ) :
+
+        get_template_part( 'template-parts/content', 'page-about' );       
         
       else :
 

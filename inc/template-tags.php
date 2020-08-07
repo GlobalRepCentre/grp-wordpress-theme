@@ -84,6 +84,18 @@ if ( ! function_exists( 'global_reporting_program_post_thumbnail_caption' ) ) :
 
 endif;
 
+if ( ! function_exists( 'global_reporting_program_page_description' ) ) :
+  /**
+ * Displays a page's custom page description if it exists
+ */
+function global_reporting_program_page_description() {
+  if ( ! get_field('page_description') ) {
+    return;
+  } ?>
+  <p><?php the_field('page_description'); ?></p>
+  <?php }
+endif;
+
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
 	 * Shim for sites older than 5.2.

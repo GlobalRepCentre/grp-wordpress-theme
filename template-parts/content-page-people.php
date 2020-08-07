@@ -11,7 +11,10 @@
 
 <article id="post-<?php the_ID(); ?>" class="people-page">
 	<header class="entry-header page">
-    <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+    <div class="container">
+      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+      <?php global_reporting_program_page_description(); ?>
+    </div>
 	</header><!-- .entry-header -->
 
 	<?php global_reporting_program_post_thumbnail(); ?>
