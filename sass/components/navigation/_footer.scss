@@ -1,9 +1,8 @@
 .site-footer {
   background-color: $primary;
   color: $lightgrey;
-  padding: 1rem 0;
+  padding: 2rem 1rem;
   margin-top: 3rem;
-  height: $footer-height;
   .site-info {
     display: flex;
     align-items: center;
@@ -14,7 +13,8 @@
       display: flex;
       align-items: center;
       span {
-        margin-right: 1rem;
+        margin: 0 1rem;
+        text-align: right;
         a {
           color: $lightgrey;
         }

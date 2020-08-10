@@ -24,13 +24,15 @@ header#cover-image {
     }
   }
   .lead {
-    display: flex;
+    @include min-wp-width { display: flex; }
     @include content-width;
     z-index: 2;
     position: relative;
     .headline {
       @include card;
       margin-top: -10rem;
+      @include min-wp-width { margin: -10rem 1rem 0; }
+      margin: -5rem 1rem;
       font-size: 1.2rem;
       padding: 0.5rem 2rem;
       h1 {
@@ -38,7 +40,8 @@ header#cover-image {
       }
     }
     .caption {
-      margin: -2rem 0 0 1.5rem;
+      margin: 6rem 1rem 2rem;
+      @include min-wp-width { margin: -2rem 1rem 0 0.5rem; }
     }
   }
 }

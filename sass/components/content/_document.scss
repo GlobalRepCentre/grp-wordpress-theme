@@ -8,7 +8,7 @@ article.document {
     width: 100%;
     max-width: 260px;
     top: calc(#{$nav-height} + 4rem);
-    bottom: $footer-height;
+    bottom: 90px;
     overflow-y: auto;
     header {
       @include card;
@@ -41,7 +41,7 @@ article.document {
     margin: 0 0 0 auto;
     section {
       margin-bottom: 2rem;
-      h2 {
+      header h2 {
         margin: 1rem 1.5rem 0.25rem;
       }
       div {
@@ -49,9 +49,6 @@ article.document {
         padding: 1.5rem;
         p:first-of-type {
           margin-top: 0;
-        }
-        p:last-of-type {
-          margin-bottom: 0;
         }
       }
     }

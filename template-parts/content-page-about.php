@@ -50,7 +50,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" class="about-page">
   <header class="entry-header page">
     <div class="container">
       <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
@@ -63,9 +63,9 @@
 	<div class="entry-content">
     <section class="stats">
       <span><span class="number"><?php echo $numProjects; ?></span>Projects</span>
-      <span class="stat-label"></span>
+      <span class="stat-label">reported from</span>
       <span><span class="number"><?php echo $numUniqueCountries; ?></span>Countries</span>
-      <span class="stat-label"></span>
+      <span class="stat-label">winning &amp;<br>nominated for</span>
       <span><span class="number"><?php echo $numAwards; ?></span>Awards</span>
     </section>
 		<?php the_content(); ?>

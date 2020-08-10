@@ -1,4 +1,16 @@
 // Sizes
+// Default WordPress size
+@mixin min-wp-width {
+  @media (min-width: 782px) {
+    @content;
+  }
+}
+@mixin max-wp-width {
+  @media (max-width: 781px) {
+    @content;
+  }
+}
+
 @mixin md {
   @media (min-width: $md) {
     @content;
@@ -38,6 +50,7 @@
   text-decoration: none;
   display: inline-block;
   font-weight: 800;
+  text-align: center;
 }
 
 @mixin cover-shadow {
