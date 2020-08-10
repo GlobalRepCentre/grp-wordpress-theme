@@ -28,7 +28,7 @@
 
 	<header id="masthead" class="site-header">
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'global-reporting-program' ); ?></button>
+			<button id="nav-button" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="far fa-bars"></i></button>
 			<?php
 			wp_nav_menu(
 				array(
@@ -36,6 +36,7 @@
 					'menu_id'        => 'primary-menu',
 				)
 			);
-			?>
+      ?>
+      <a class="menu-logo" href="<?php echo get_home_url(); ?>"><img width="90" src="https://globalreportingcentre.org/wp-content/uploads/2020/06/global_reporting_centre_logo.svg" /></a>
     </nav><!-- #site-navigation -->
   </header><!-- #masthead -->

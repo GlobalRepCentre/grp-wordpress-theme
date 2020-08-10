@@ -5,14 +5,14 @@
  * navigation support for dropdown menus.
  */
 ( function() {
-	const siteNavigation = document.getElementById( 'site-navigation' );
+  const siteNavigation = document.getElementById( 'site-navigation' );
 
 	// Return early if the navigation don't exist.
 	if ( ! siteNavigation ) {
 		return;
 	}
 
-	const button = siteNavigation.getElementsByTagName( 'button' )[ 0 ];
+	const button = document.getElementById( 'nav-button' );
 
 	// Return early if the button don't exist.
 	if ( 'undefined' === typeof button ) {
@@ -33,7 +33,7 @@
 
 	// Toggle the .toggled class and the aria-expanded value each time the button is clicked.
 	button.addEventListener( 'click', function() {
-		siteNavigation.classList.toggle( 'toggled' );
+    siteNavigation.classList.toggle( 'toggled' );
 
 		if ( button.getAttribute( 'aria-expanded' ) === 'true' ) {
 			button.setAttribute( 'aria-expanded', 'false' );
@@ -47,10 +47,10 @@
 		const isClickInside = siteNavigation.contains( event.target );
 
 		if ( ! isClickInside ) {
-			siteNavigation.classList.remove( 'toggled' );
+      siteNavigation.classList.remove( 'toggled' );
 			button.setAttribute( 'aria-expanded', 'false' );
 		}
-	} );
+  } );
 
 	// Get all the link elements within the menu.
 	const links = menu.getElementsByTagName( 'a' );
@@ -97,3 +97,20 @@
 		}
 	}
 }() );
+
+
+jQuery(document).ready(function($){
+  const $nav = $('#site-navigation');
+  let resize = '';
+  $(window).resize(function() {
+    clearTimeout(resize);
+    resize = setTimeout(hasResized, 100);
+  });
+  function hasResized(){
+    if ( $('#nav-button').css('display') !== 'block' ) {
+      if ($nav.hasClass('toggled')) {
+        $nav.removeClass('toggled');
+      }
+    }
+  }
+});
