@@ -212,14 +212,16 @@ function global_reporting_program_scripts() {
   wp_enqueue_style('font', 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;800&display=swap');
 	wp_enqueue_style( 'global-reporting-program-style', get_stylesheet_uri(), array(), _S_VERSION );
 
-	wp_enqueue_script( 'global-reporting-program-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), _S_VERSION, true );
+  wp_enqueue_script( 'global-reporting-program-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), _S_VERSION, true );
+  
+  wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/8a020944ca.js', array(), _S_VERSION, false );
 
   if ( is_front_page() || is_page('projects') ) {
     wp_enqueue_script( 'global-reporting-program-header-fader', get_template_directory_uri() . '/js/header-fader.js', array(), _S_VERSION, true );
   }
 
-  if ( is_front_page() ) {
-    wp_enqueue_script( 'font-awesome', 'https://kit.fontawesome.com/8a020944ca.js', array(), _S_VERSION, false );
+  if ( is_page('about') ) {
+    wp_enqueue_script( 'global-reporting-program-collapsers', get_template_directory_uri() . '/js/collapsers.js', array(), _S_VERSION, true );
   }
 
   if ( is_page_template('page-document.php') ) {

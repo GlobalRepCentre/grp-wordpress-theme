@@ -1,0 +1,49 @@
+.collapser {
+  overflow: auto;
+  border: 1px solid $grey;
+  margin: 1rem 0;
+  border-radius: 2px;
+  max-width: $content-width;
+  .title {
+    display: flex;
+    cursor: pointer;
+    transition: background-color 0.15s;
+    align-items: center;
+    &:hover,
+    &:focus {
+      background-color: lighten($primary, 15%);
+      color: $white;
+    }
+    &.active {
+      background-color: $primary;
+      color: $white;
+    }
+  }
+  .content {
+    font-size: 0.9em;
+    display: none;
+    p {
+      padding: 0 1rem;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  span {
+    padding: 0.8rem;
+    &.text {
+      flex-grow: 1;
+      padding-left: 1rem;
+    }
+    &.info,
+    &.plus-minus {
+      flex-shrink: 1;
+    }
+    &.plus-minus {
+      border-left: 1px solid $grey;
+    }
+  }
+  + h2 {
+    margin-top: 3rem;
+  }
+}
