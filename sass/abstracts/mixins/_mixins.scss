@@ -17,6 +17,12 @@
   }
 }
 
+@mixin lg {
+  @media (min-width: $lg) {
+    @content;
+  }
+}
+
 // Cards
 @mixin card {
   border-radius: 3px;

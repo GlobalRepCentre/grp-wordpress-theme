@@ -1,15 +1,22 @@
 article.document {
   @include content-width;
   @include content-padding;
-  display: flex;
   .header-nav {
-    text-align: right;
-    position: fixed;
     width: 100%;
-    max-width: 260px;
-    top: calc(#{$nav-height} + 4rem);
-    bottom: 90px;
-    overflow-y: auto;
+    @include md {
+      max-width: 210px;
+      text-align: right;
+      position: fixed;
+      overflow-y: auto;
+      font-size: 0.8rem;
+    }
+    @include lg {
+      max-width: 260px;
+      top: calc(#{$nav-height} + 4rem);
+      bottom: 90px;
+      font-size: 0.9rem;
+    }
+
     header {
       @include card;
       h1 {
@@ -33,22 +40,36 @@ article.document {
         display: inline-block;
         text-decoration: none;
         padding: 0.35rem;
+        &:link, &:visited {
+          color: $grey;
+        }
+        &:hover, &:active {
+          color: $black;
+        }
       }
     }
   }
   .entry-content {
-    width: calc(100% - 290px);
+    @include md { width: calc(100% - 240px); }
+    @include lg { width: calc(100% - 290px); }
     margin: 0 0 0 auto;
     section {
       margin-bottom: 2rem;
       header h2 {
-        margin: 1rem 1.5rem 0.25rem;
+        margin: 2rem 1rem 0.25rem;
+        @include md {
+          margin: 1rem 1.5rem 0.25rem;
+        }
       }
       div {
         @include card;
-        padding: 1.5rem;
+        padding: 1rem;
+        @include md { padding: 1.5rem; }
         p:first-of-type {
           margin-top: 0;
+        }
+        h3 {
+          margin: 2rem 0 0;
         }
       }
     }

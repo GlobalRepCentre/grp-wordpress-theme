@@ -30,6 +30,11 @@ figure {
   }
 }
 
-.people-page img {
+.people-page img, .entry-content img {
   border-radius: 3px;
 }
+
+.img-wrapper img {
+  width: 100%;
+}
+

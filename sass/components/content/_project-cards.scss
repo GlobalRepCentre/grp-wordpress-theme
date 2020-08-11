@@ -1,14 +1,19 @@
 .project {
   font-size: 0.9rem;
+  margin-bottom: 2rem;
   .img-wrapper {
     img {
       display: block;
     }
   }
+  .entry-header {
+    position: relative;
+  }
   .overview {
     @include card;
     h2 {
       margin: 0.5rem 0;
+      font-size: 1.2rem;
     }
     .logo {
       max-width: 170px;
@@ -16,7 +21,7 @@
       margin: 0.25rem 0 1rem;
     }
     p {
-      margin: 1rem 0;
+      @include md { margin: 1rem 0; }
     }
   }
   .location-awards {
@@ -25,6 +30,7 @@
       text-transform: uppercase;
       display: inline-block;
       margin-right: 0.25rem;
+      padding-top: 0.5rem;
       font-weight: 800;
     }
     span.list-item {
@@ -37,26 +43,32 @@
   }
   &.featured {
     margin-bottom: 2rem;
+    @include lg { margin-bottom: 3rem; }
     header#cover-project {
-      position: relative;
       .caption {
         position: absolute;
-        bottom: 0.5rem;
+        bottom: 1.5rem;
+        @include lg { 
+          bottom: 0.5rem;
+          // account for overflowing .overview box
+          margin-left: calc(60% + 2rem);
+        }
         right: 1rem;
-        // account for overflowing .overview box
-        margin-left: calc(60% + 2rem);
         color: $white;
         text-align: right;
       }
     }
     .info-box {
       @include content-width;
-      display: flex;
+      @include lg { display: flex; }
       .overview {
-        display: flex;
         flex-basis: 60%;
-        margin-top: -5rem;
-        margin-left: 1rem;
+        margin: -1rem 1rem 0;
+        @include lg {
+          display: flex;
+          margin-top: -5rem;
+          margin-left: 1rem;
+        }
         position: relative;
         div {
           flex: 1;
@@ -64,12 +76,17 @@
         div:first-child {
           flex: 0 1 auto;
           margin-right: 2rem;
+          @include lg { max-width: 40%; }
         }
       }
       .location-awards {
-        display: flex;
         flex-basis: 40%;
-        padding: 1rem 0 0 2rem;
+        padding: 0.75rem 0 0 2rem;
+        @include lg { 
+          display: flex;
+          padding: 1rem 0 0 0; 
+          max-width: 40%;
+        }
         div {
           flex: 1;
           padding-right: 1rem;
@@ -81,40 +98,54 @@
     }
   }
   &.regular {
-    margin: 2rem 0;
-    display: flex;
+    margin-bottom: 3rem;
+    @include lg { display: flex; }
     .entry-header {
-      width: 50%;
+      @include lg { width: 50%; }
       img {
-        border-radius: 3px;
+        @include lg { border-radius: 3px; }
+      }
+      .caption {
+        position: absolute;
+        bottom: 1.5rem;
+        right: 1rem;
+        color: $white;
+        text-align: right;
+        @include lg { position: static; }
       }
     }
     .info-box {
-      max-width: $sm;
-      margin-top: 2rem;
+      margin: -1rem 1rem;
+      position: relative;
+      z-index: 2;
+      @include lg { 
+        max-width: $sm; 
+        margin: 2rem 0 0;
+      }
       .overview {
-        padding: 1rem 1.25rem;
+        padding: 1rem;
+        @include lg { padding: 1rem 1.25rem; }
         .button {
           margin-bottom: 0.5rem;
         }
       }
     }
     .location-awards {
-      padding: 0.75rem 1.5rem 0;
-      .list-label {
-        padding-top: 0.5rem;
-      }
+      padding: 0.75rem 1rem 0;
+      @include lg { padding: 0.75rem 1.5rem 0; }
     }
     &:nth-child(even) {
-      .entry-header {
-        order: 2;
-        .caption {
-          text-align: right;
+      @include lg {
+        .entry-header {
+          order: 2;
+          .caption {
+            text-align: right;
+          }
         }
-      }
-      .info-box {
-        order: 1;
-        margin-left: auto;
+        .info-box {
+          order: 1;
+          margin-left: auto;
+        }
       }
     }
   }

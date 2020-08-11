@@ -1,0 +1,7 @@
+// Customizations for WP default block styles
+
+.wp-block-columns {
+  &.nomargin {
+    margin: 0;
+  }
+}
