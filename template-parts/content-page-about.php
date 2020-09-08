@@ -9,7 +9,7 @@
 
 ?>
 
-<?php 
+<?php
   // set up the query for project posts to populate stats section
   $args = array( 'post_type' => 'post', 'posts_per_page' => -1 );
   $projects = new WP_Query($args);
@@ -36,14 +36,14 @@
 
       endif;
 
-      if ( have_rows('awards') ) : 
+      if ( have_rows('awards') ) :
         while( have_rows('awards') ) : the_row();
           $numAwards++;
         endwhile;
       endif;
-    
+
     endwhile;
-  
+
   endif;
 
   wp_reset_postdata();
@@ -68,7 +68,24 @@
       <span class="stat-label">winning &amp;<br>nominated for</span>
       <span><span class="number"><?php echo $numAwards; ?></span>Awards</span>
     </section>
-		<?php the_content(); ?>
+    <section>
+      <?php the_content(); ?>
+    </section>
+    <?php if ( have_rows('faqs') ) : ?>
+    <section id="faqs">
+      <h2 class="anchor-offset" id="questions">Frequently asked questions</h2>
+      <?php while ( have_rows('faqs') ) : the_row(); ?>
+        <div class="collapser">
+          <div class="title" tabindex="0"><span class="text"><?php the_sub_field('question'); ?></span><span class="plus-minus"><i class="fas fa-plus"></i></span></div>
+          <div class="content" style="display: none;">
+            <?php the_sub_field('answer'); ?>
+          </div>
+        </div>
+      <?php endwhile; ?>
+    </div>
+  </section>
+  <?php endif; ?>
+
 	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

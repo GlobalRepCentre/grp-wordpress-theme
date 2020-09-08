@@ -19,8 +19,10 @@
 
 	<?php global_reporting_program_post_thumbnail(); ?>
 
-	<div class="entry-content">
-		<?php the_content(); ?>
+	<div class="entry-content default">
+    <section>
+		  <?php the_content(); ?>
+    </section
 	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->

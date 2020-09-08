@@ -22,9 +22,12 @@ table {
   }
   &.assignments {
     table {
-      tr td:first-child {
+      margin-top: 0.75rem;
+      max-width: 400px;
+      tr td:last-child {
         width: 70px;
         font-weight: 800;
+        text-align: center;
       }
     }
   }

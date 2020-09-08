@@ -5,7 +5,7 @@
   left: 0;
   width: 100%;
   background-color: $primary;
-  height: $nav-height;
+  min-height: $nav-height;
   z-index: 3;
 }
 
@@ -23,7 +23,7 @@
 		ul {
       font-size: 0.7rem;
       padding-left: 0.7rem;
-      min-width: 170px;
+      min-width: 180px;
       @include md {
         background: none;
         padding-left: 0;
@@ -63,7 +63,7 @@
 
 		li:hover > ul {
       left: auto;
-			@include md { 
+			@include md {
         opacity: 0;
         animation: fade-down 0.6s forwards;
       }
@@ -72,7 +72,7 @@
       left: auto;
 		}
   }
-  
+
 @keyframes fade-down {
   0% {
     transform: translateY(-0.6rem);
@@ -91,7 +91,7 @@
 		&:hover > a,
 		&.focus > a {
     }
-    
+
     &:last-child {
       margin-left: auto;
     }
@@ -103,7 +103,7 @@
         position: relative;
 
         &::after {
-          @include md { 
+          @include md {
             content: '';
             position: absolute;
             top: 50%;
@@ -133,7 +133,7 @@
 	.current_page_ancestor > a,
 	.current-menu-ancestor > a {
   }
-  
+
   .support {
     padding: 0.5rem 1rem 1rem 1rem;
     @include md {
@@ -222,7 +222,7 @@
 
 .fade-header .site-header {
   background: none;
-  @include md { 
+  @include md {
     transition: background 0.3s ease-in-out;
     &.active {
       background: $primary;
@@ -239,6 +239,14 @@
   #wpadminbar {
     position: fixed;
   }
+}
+
+// Anchor offset
+.anchor-offset::before {
+  content: '';
+  display: block;
+  height: 90px;
+  margin-top: -90px;
 }
 
 @import "footer";

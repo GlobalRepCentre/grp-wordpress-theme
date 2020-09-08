@@ -18,6 +18,12 @@ li > ol {
 	margin-left: 1.5em;
 }
 
+.entry-content ul, .entry-content ol {
+  li {
+    margin: 0.75rem 0;
+  }
+}
+
 dt {
 	font-weight: 700;
 }

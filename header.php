@@ -23,7 +23,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
   <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'global-reporting-program' ); ?></a>
-  
+
   <span id="intersector" aria-hidden="true"></span>
 
 	<header id="masthead" class="site-header">
@@ -37,6 +37,6 @@
 				)
 			);
       ?>
-      <a class="menu-logo" href="<?php echo get_home_url(); ?>"><img width="90" src="https://globalreportingcentre.org/wp-content/uploads/2020/06/global_reporting_centre_logo.svg" /></a>
+      <a class="menu-logo" href="<?php echo get_home_url(); ?>"><img width="90" src="https://globalreportingprogram.org/wp-content/uploads/2020/08/global_reporting_program_logo.png" /></a>
     </nav><!-- #site-navigation -->
   </header><!-- #masthead -->

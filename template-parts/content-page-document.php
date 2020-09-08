@@ -9,41 +9,63 @@
 
 ?>
 
-<article id="syllabus" class="document">
-  <div class="header-nav">
-    <header class="entry-header">
-      <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-      <?php	the_content(); ?>
-    </header>
-    <?php
-    // Query for syllabus posts
-    $post_slug = $post->post_name;
-    $args = array( 'post_type' => $post_slug, 'posts_per_page' => -1 );
-    $sections = new WP_Query($args);
+  <?php if (post_password_required() ) : ?>
 
-    if ($sections->have_posts()) : ?>
-      <nav>
-        <ul>
-          <?php while ($sections->have_posts()) : $sections->the_post(); ?>
-            <?php $title = get_the_title(); ?>
-            <li><a class="doc-nav" href="#<?php echo sanitize_title($title); ?>"><?php echo $title; ?></a></li>
-          <?php endwhile; ?>
-        </ul>
-      </nav>
-    <?php endif; ?>
-  </div>
-	<div class="entry-content">
-    <?php $sections->rewind_posts();
-    if ($sections->have_posts()) : ?>
-      <?php while ($sections->have_posts()) : $sections->the_post(); ?>
-        <?php $title = get_the_title(); ?>
-        <section id="<?php echo sanitize_title($title); ?>">
-          <header><h2 class="section"><?php echo $title; ?></h2></header>
-          <div><?php the_content(); ?></div>
-        </section>
-      <?php endwhile; ?>
-    <?php endif; ?>
+  <article>
 
-    <?php wp_reset_postdata(); ?>
-	</div>
+    <header class="entry-header page">
+      <div class="container">
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+      </div>
+	  </header><!-- .entry-header -->
+
+    <div class="entry-content default">
+      <section>
+        <?php echo get_the_password_form(); ?>
+      </section>
+    </div>
+
+  <?php else : ?>
+
+  <article id="syllabus" class="document">
+
+    <div class="header-nav">
+      <header class="entry-header">
+        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+        <?php	the_content(); ?>
+      </header>
+      <?php
+      // Query for syllabus posts
+      $post_slug = $post->post_name;
+      $args = array( 'post_type' => $post_slug, 'posts_per_page' => -1 );
+      $sections = new WP_Query($args);
+
+      if ($sections->have_posts()) : ?>
+        <nav>
+          <ul>
+            <?php while ($sections->have_posts()) : $sections->the_post(); ?>
+              <?php $title = get_the_title(); ?>
+              <li><a class="doc-nav" href="#<?php echo sanitize_title($title); ?>"><?php echo $title; ?></a></li>
+            <?php endwhile; ?>
+          </ul>
+        </nav>
+      <?php endif; ?>
+    </div>
+    <div class="entry-content">
+      <?php $sections->rewind_posts();
+      if ($sections->have_posts()) : ?>
+        <?php while ($sections->have_posts()) : $sections->the_post(); ?>
+          <?php $title = get_the_title(); ?>
+          <section id="<?php echo sanitize_title($title); ?>">
+            <header><h2 class="section"><?php echo $title; ?></h2></header>
+            <div class="content-area"><?php the_content(); ?></div>
+          </section>
+        <?php endwhile; ?>
+      <?php endif; ?>
+
+      <?php wp_reset_postdata(); ?>
+    </div>
+
+  <?php endif; ?>
+
 </article>

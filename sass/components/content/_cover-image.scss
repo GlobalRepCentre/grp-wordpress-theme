@@ -6,10 +6,16 @@ header#cover-image {
   .img-wrapper {
     position: relative;
     overflow: hidden;
-    // for the bottom pseudo element
+    display: flex;
+    min-height: 400px;
+    @include min-wp-width {
+      display: block;
+    }
     img {
       width: 100%;
       display: block;
+      object-fit: cover;
+      object-position: right;
     }
     &::after {
       content: '';
@@ -31,17 +37,37 @@ header#cover-image {
     .headline {
       @include card;
       margin-top: -10rem;
-      @include min-wp-width { margin: -10rem 1rem 0; }
+      @include min-wp-width {
+        margin: -10rem 1rem 0;
+        padding: 0.5rem 2rem;
+      }
       margin: -5rem 1rem;
+      padding: 0.25rem 1.25rem;
       font-size: 1.2rem;
-      padding: 0.5rem 2rem;
       h1 {
         margin-bottom: 0;
+        font-size: 1.5em;
+        @include min-wp-width {
+          font-size: 2em;
+        }
       }
     }
     .caption {
       margin: 6rem 1rem 2rem;
       @include min-wp-width { margin: -2rem 1rem 0 0.5rem; }
+    }
+  }
+}
+
+header#cover-project {
+  .img-wrapper {
+    display: flex;
+    min-height: 400px;
+    @include min-wp-width {
+      display: block;
+    }
+    img {
+      object-fit: cover;
     }
   }
 }

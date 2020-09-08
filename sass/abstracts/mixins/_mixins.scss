@@ -11,6 +11,12 @@
   }
 }
 
+@mixin sm {
+  @media (min-width: $sm) {
+    @content;
+  }
+}
+
 @mixin md {
   @media (min-width: $md) {
     @content;

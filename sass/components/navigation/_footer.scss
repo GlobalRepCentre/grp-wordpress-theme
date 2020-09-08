@@ -1,24 +1,29 @@
 .site-footer {
   background-color: $primary;
   color: $lightgrey;
-  padding: 2rem 1rem;
+  padding: 1rem 0 2rem;
   margin-top: 2rem;
-  .site-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.8rem;
+  .footer-content {
+    padding: 0 1rem;
     @include content-width;
-    div {
-      display: flex;
-      align-items: center;
-      span {
-        margin: 0 1rem;
-        text-align: right;
-        a {
-          color: $lightgrey;
-        }
+  }
+  .site-info {
+    @include md { display: flex; }
+    align-items: center;
+    font-size: 0.8rem;
+    .site-logos {
+      @include md { display: flex; }
+      a:first-child {
+        margin: 1rem 0;
+        display: block;
+        @include md { margin: 0 1rem; }
       }
+    }
+  }
+  p {
+    font-size: 0.8rem;
+    a {
+      color: lightgrey;
     }
   }
 }

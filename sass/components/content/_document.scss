@@ -9,11 +9,11 @@ article.document {
       position: fixed;
       overflow-y: auto;
       font-size: 0.8rem;
+      top: calc(#{$nav-height} + 4rem);
+      bottom: 32px;
     }
     @include lg {
       max-width: 260px;
-      top: calc(#{$nav-height} + 4rem);
-      bottom: 90px;
       font-size: 0.9rem;
     }
 
@@ -61,7 +61,7 @@ article.document {
           margin: 1rem 1.5rem 0.25rem;
         }
       }
-      div {
+      div.content-area {
         @include card;
         padding: 1rem;
         @include md { padding: 1.5rem; }
@@ -70,6 +70,18 @@ article.document {
         }
         h3 {
           margin: 2rem 0 0;
+          &.date {
+            text-decoration: underline;
+            text-transform: uppercase;
+            padding-top: 2rem;
+            border-top: 1px solid;
+
+          }
+        }
+        > h3:first-child {
+          padding-top: 0.5rem;
+          border-top: 0;
+          margin-top: 0;
         }
       }
     }

@@ -136,7 +136,7 @@ function grp_custom_posts_init() {
     'has_archive'        => false,
     'hierarchical'       => false,
     'menu_position'      => 5,
-    'supports'           => array( 'title', 'editor' ),
+    'supports'           => array( 'title', 'editor', 'revisions' ),
     'show_in_rest'       => true
   );
 
@@ -164,7 +164,7 @@ function grp_custom_posts_init() {
     'has_archive'        => false,
     'hierarchical'       => false,
     'menu_position'      => 5,
-    'supports'           => array( 'title', 'editor' ),
+    'supports'           => array( 'title', 'editor', 'revisions' ),
     'show_in_rest'       => true
   );
 
@@ -205,11 +205,27 @@ function fading_header( $classes ) {
 }
 add_filter( 'body_class', 'fading_header' );
 
+// Remove protected or private from post titles
+function the_title_trim($title) {
+  $title = attribute_escape($title);
+  $protectedPrivate = array(
+    '#Protected: #',
+    '#Private: #'
+  );
+  $replacewith = array(
+    '',
+    ''
+  );
+  $title = preg_replace($protectedPrivate, $replacewith, $title);
+  return $title;
+}
+add_filter('the_title', 'the_title_trim');
+
 /**
  * Enqueue scripts and styles.
  */
 function global_reporting_program_scripts() {
-  wp_enqueue_style('font', 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@500;800&display=swap');
+  wp_enqueue_style('font', 'https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;800&display=swap');
 	wp_enqueue_style( 'global-reporting-program-style', get_stylesheet_uri(), array(), _S_VERSION );
 
   wp_enqueue_script( 'global-reporting-program-navigation', get_template_directory_uri() . '/js/navigation.js', array('jquery'), _S_VERSION, true );
